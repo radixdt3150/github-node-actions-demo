@@ -27,6 +27,8 @@ jobs:
     - uses: actions/setup-node@v4
       with:
         node-version: 20
-    - run: echo "Build and Deploy"
+    - run: npm i -g pnpm
+    - run: pnpm install
+    - run: echo "Build and Deploy successful"
 
 
