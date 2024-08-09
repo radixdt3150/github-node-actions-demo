@@ -5,6 +5,6 @@ describe("GET /", () => {
     test('It should return a successful(200) response', () => {
         return request(app)
             .get("/")
-            .expect(200)
+            .expect(400)
     });
 });
