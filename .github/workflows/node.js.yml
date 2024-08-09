@@ -5,21 +5,8 @@ on:
     branches: [ "main" ]
     
 jobs:
-  build:
-
-    runs-on: ubuntu-latest
-
-    steps:
-    - uses: actions/checkout@v4
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v4
-      with:
-        node-version: 20
-    - run: npm i -g pnpm
-    - run: pnpm install
 
   test:
-    needs: build
     runs-on: ubuntu-latest
 
     steps:
@@ -28,6 +15,18 @@ jobs:
         with:
           node-version: 20
       - run: npm i -g pnpm
+      - run: pnpm install
       - run: pnpm run test
+
+  build:
+    needs: test
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+    - uses: actions/setup-node@v4
+      with:
+        node-version: 20
+    - run: echo "Build and Deploy"
 
 
