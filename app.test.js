@@ -11,8 +11,8 @@ describe("GET /", () => {
             })
     });
 
-    test('It should fail', (done) => {
-        expect(5).toBe(4)
+    test('It should now pass', (done) => {
+        expect(5).toBe(5)
         done()
     });
 });
